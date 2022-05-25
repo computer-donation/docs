@@ -1,0 +1,28 @@
+@startuml
+package "Parts Manager" as PartsManager {
+  [Mainboard - Desktop]
+  [CPU]
+  [RAM - Desktop]
+  [Hard Disk]
+  [Video Card]
+  [Case]
+  [Fan]
+  [Air Cooler]
+  [RAM - Laptop]
+  [Mainboard - Laptop]
+}
+
+package "Computer Manager" as ComputerManager {
+  [Computer]
+}
+
+package "Donation" {
+  [Event]
+  [Donator]
+}
+
+PartsManager ..> [Computer] : Build
+PartsManager <.. [Computer] : Disassemble
+[Donator] ..> [Computer] : Donate
+[Event] <.. [Computer] : Give Away
+@enduml
